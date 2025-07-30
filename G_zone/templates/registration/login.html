@@ -1,0 +1,19 @@
+{% extends "base2.html" %}
+{% block content%}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-4  border align-self-center">
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Log In</button>
+  <div class="container" style="background-color:#f1f1f1">
+    <span class="psw"><a href="{% url 'password_reset' %}">Forgot password?</a></span>
+    <span ><a href="{% url 'signup' %}">Register a new account</a></span>
+  </div>
+</form>
+</div>
+</div>
+</div>
+{% endblock  %}

@@ -1,0 +1,56 @@
+
+.checked {
+  color: orange;
+}
+.cart-item img {
+     max-width: 100px;
+     height: auto;
+ }
+
+ .quantity-input {
+     width: 50px;
+ }
+
+ .cart-summary {
+     background-color: #f8f9fa;
+     border-radius: 10px;
+ }
+
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: black;
+  color: white;
+}
+
+#tmanu{
+  
+display: flex;
+border: 0px solid red;
+gap: 1px;
+flex-direction: row;
+justify-content: space-around;
+padding: 5px;
+
+}
+#item3{
+border: 0px solid orange;
+
+flex-grow: 1;
+
+text-align: right;
+}
+.Item2{
+border: 0px solid orange;
+
+text-align: right;
+
+}
+#item2{
+  border: 0px solid orange;
+
+flex-grow: 2;
+
+text-align: center;
+}

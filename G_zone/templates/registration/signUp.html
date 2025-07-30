@@ -1,0 +1,34 @@
+{% extends "base2.html" %}
+{% block content%}
+
+<section id="form" class="margin-left:30px">
+<div class="continer border">
+
+    <div class="row justify-content-center">
+    <div class="col-sm-4  border align-self-center">
+            <div class="card" style="width: 18rem;">
+            <div class="signpu-form">
+                <h5>Create your account</h5>
+                <form method="post">
+                    {% csrf_token %}
+                    {%for field in form %}
+                    {{field.errors}}
+                    <p>{{field}}</p>
+                    {%endfor%}
+                    <button class="btn btn-primary" type="submit">Sign Up</button>
+
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+</div>
+</section>
+
+
+
+{% endblock  %}

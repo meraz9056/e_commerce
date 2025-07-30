@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+<div class="row border">
+    <div class="col-sm-3 col-md-3 col-lg-3">
+        <div  class="list-group  mt-4">
+            
+            <a href="#" class="list-group-item list-group-item-action active">Category</a>
+            {% for cat in category %}
+        <a href="#{{cat.id}}" class="list-group-item list-group-item-action" data-bs-toggle="collapse" aria-controls="{{cat.id}}">
+{{cat.name}}
+  </a>
+<div class="collapse" id="{{cat.id}}">
+  
+  {% for i in cat.subcategory_set.all %}
+   <a href="/?category={{i.id}}" class="list-group-item d-flex justify-content-between align-items-center">
+    {{i.name}}</a>
+    
+  {% endfor%}
+   
+</div>
+            {% endfor %}
+            
+</div>
+
+    </div>
+    <div class="col-sm-4 col-md-9 col-lg-9">
+        <div class="row"><div class="col-sm-12">Dress</div></div>
+    <div class="row border">
+      {% for pr in product %}
+        <div class="col-sm-4 col-lg-3 col-md-2 justify-content-first d-flex  mt-1">
+            <div class="card" style="width: 18rem;">
+  <img src="{{pr.image}}" class="card-img-top" height="250px" alt="...">
+  <div class="card-body">
+      <p class="card-text">{{pr.name}}</p>
+      <p>Offer Price:BDT {{pr.price}} <br>
+          Pre Price:BDT <del>{{pr.price}}</del>&nbsp;&nbsp;<span class="btn btn-danger  rounded-circle"> Off<br>-13%</span><br>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span></p>
+
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal-{{forloop.counter}}">
+       Details
+     </button>
+      <a href="{% url 'cart_add' pr.id %}" class="btn btn-primary">Add To Cart</a>
+  </div>
+</div>
+</div>
+{% endfor %}
+        
+        
+        
+        </div>
+    </div>
+
+ 
+</div>
+
+
+
+{% endblock content%}
